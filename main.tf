@@ -1,5 +1,5 @@
 module "vpc"{
-  source              ="git@https://github.com/chandralekhasingasani/tf-module-vpc.git"
+  source              ="git::htpps://github.com/chandralekhasingasani/tf-module-vpc.git"
   CIDR_BLOCK          = var.CIDR_BLOCK
   AZ                  = var.AZ
   ENV                 = var.ENV
