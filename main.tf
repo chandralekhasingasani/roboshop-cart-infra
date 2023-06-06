@@ -3,7 +3,8 @@ module "vpc"{
   CIDR_BLOCK          = var.CIDR_BLOCK
   AZ                  = var.AZ
   ENV                 = var.ENV
-  SUBNET_CIDER_BLOCK  = var.SUBNET_CIDR_BLOCK
+  SUBNET_CIDR_BLOCK  = var.SUBNET_CIDR_BLOCK
+  COMPONENT          = var.COMPONENT
 }
 
 output "CART_VPC_ID" {
