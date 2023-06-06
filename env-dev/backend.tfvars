@@ -1,6 +1,3 @@
-terraform {
-  backend "s3" {
-    bucket = "some-bucket"
-    key = "path/to/key"
-    region = "some-aws-region"
-  }}
+bucket = "terraform-b64"
+key = "cart/vpc/terraform.tfstate"
+region = "us-east-1"
