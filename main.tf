@@ -1,4 +1,3 @@
-/*
 module "vpc"{
   source              ="git::https://github.com/chandralekhasingasani/tf-module-vpc.git"
   CIDR_BLOCK          = var.CIDR_BLOCK
@@ -12,7 +11,7 @@ module "vpc"{
   TGW_DEFAULT_ATTACHMENT_ID = data.terraform_remote_state.tgw.outputs.TGW_DEFAULT_ATTACHMENT_ID
   TGW_DEFAULT_ROUTE_TABLE_ID = data.terraform_remote_state.tgw.outputs.TGW_DEFAULT_ROUTE_TABLE_ID
   PUBLIC_ROUTE_TABLE_ID_DEFAULT_VPC = data.terraform_remote_state.tgw.outputs.PUBLIC_ROUTE_TABLE_ID_DEFAULT_VPC
-}*/
+}
 
 output "DEFAULT_VPC_CIDR_BLOCK" {
   value = data.terraform_remote_state.tgw.outputs.DEFAULT_VPC_CIDR_BLOCK
