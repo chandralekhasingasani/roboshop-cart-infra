@@ -4,6 +4,7 @@ variable "COMPONENT" {}
 variable "ENV" {}
 variable "AZ" {}
 variable "PROJECT_NAME" {}
+variable "DEFAULT_VPC_ID" {}
 variable "DEFAULT_VPC_CIDR_BLOCK" {
 }
 variable "TGW_ID" {
