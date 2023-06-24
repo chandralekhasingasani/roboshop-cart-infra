@@ -9,3 +9,4 @@ variable "NODE_TYPE" {}
 variable "NUM_CACHE_NODES" {}
 variable "ENGINE_VERSION" {}
 variable "FAMILY" {}
+variable "PORT" {}
