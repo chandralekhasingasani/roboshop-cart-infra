@@ -24,7 +24,6 @@ module "vpc"{
 }*/
 
 module "ec2"{
-  depends_on             = [module.elasticcache]
   source                 ="git::https://github.com/chandralekhasingasani/tf-module-mutable.git"
   ENV                    = var.ENV
   COMPONENT              = var.COMPONENT
