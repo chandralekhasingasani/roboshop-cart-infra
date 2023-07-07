@@ -7,7 +7,7 @@ module "vpc"{
   COMPONENT           = var.COMPONENT
 }
 
-module "elasticcache"{
+/*module "elasticcache"{
   depends_on             = [module.vpc]
   source                 ="git::https://github.com/chandralekhasingasani/tf-module-redis.git"
   ENV                    = var.ENV
@@ -21,7 +21,7 @@ module "elasticcache"{
   ENGINE_VERSION         = var.ENGINE_VERSION
   FAMILY                 = var.FAMILY
   PORT                   = var.PORT
-}
+}*/
 
 module "ec2"{
   depends_on             = [module.elasticcache]
@@ -34,6 +34,7 @@ module "ec2"{
   INSTANCE_TYPE          = var.INSTANCE_TYPE
   SPOT_INSTANCE_COUNT    = var.SPOT_INSTANCE_COUNT
   INSTANCE_COUNT         = var.INSTANCE_COUNT
+  WORKSTATION_IP         = var.WORKSTATION_IP
 }
 
 

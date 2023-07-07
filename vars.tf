@@ -13,3 +13,4 @@ variable "PORT" {}
 variable "SPOT_INSTANCE_COUNT" {}
 variable "INSTANCE_COUNT" {}
 variable "INSTANCE_TYPE" {}
+variable "WORKSTATION_IP" {}
