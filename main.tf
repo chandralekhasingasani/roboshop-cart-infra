@@ -7,7 +7,7 @@ module "vpc"{
   COMPONENT           = var.COMPONENT
 }
 
-/*module "elasticcache"{
+module "elasticcache"{
   depends_on             = [module.vpc]
   source                 ="git::https://github.com/chandralekhasingasani/tf-module-redis.git"
   ENV                    = var.ENV
@@ -21,7 +21,7 @@ module "vpc"{
   ENGINE_VERSION         = var.ENGINE_VERSION
   FAMILY                 = var.FAMILY
   PORT                   = var.PORT
-}*/
+}
 
 module "ec2"{
   source                 ="git::https://github.com/chandralekhasingasani/tf-module-mutable.git"
