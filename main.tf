@@ -6,7 +6,6 @@ module "vpc"{
   SUBNET_CIDR_BLOCK   = var.SUBNET_CIDR_BLOCK
   COMPONENT           = var.COMPONENT
 }
-
 module "elasticcache"{
   depends_on             = [module.vpc]
   source                 ="git::https://github.com/chandralekhasingasani/tf-module-redis.git"
@@ -20,11 +19,14 @@ module "elasticcache"{
   NUM_CACHE_NODES        = var.NUM_CACHE_NODES
   ENGINE_VERSION         = var.ENGINE_VERSION
   FAMILY                 = var.FAMILY
-  PORT                   = var.PORT
+  PRIVATE_HOSTED_ZONE_ID = module.vpc.PRIVATE_HOSTED_ZONE_ID
+  DB_NAME                = "users"
 }
 
-module "ec2"{
-  source                 ="git::https://github.com/chandralekhasingasani/tf-module-mutable.git"
+
+module "app"{
+  depends_on             = [module.elasticcache]
+  source                 = "git::https://github.com/chandralekhasingasani/tf-module-mutable.git"
   ENV                    = var.ENV
   COMPONENT              = var.COMPONENT
   VPC_ID                 = module.vpc.VPC_ID
@@ -34,8 +36,15 @@ module "ec2"{
   SPOT_INSTANCE_COUNT    = var.SPOT_INSTANCE_COUNT
   INSTANCE_COUNT         = var.INSTANCE_COUNT
   WORKSTATION_IP         = var.WORKSTATION_IP
+  PORT                   = var.PORT
+  IAM_INSTANCE_PROFILE   = var.IAM_INSTANCE_PROFILE
   IS_ALB_INTERNAL        = var.IS_ALB_INTERNAL
-  CIDR_BLOCK_ELB_ACCESS  = var.CIDR_BLOCK_ELB_ACCESS
+  CIDR_BLOCK_ELB_ACCESS  = [var.FRONT_END_CIDR, module.vpc.VPC_CIDR]
+  PRIVATE_HOSTED_ZONE_ID = module.vpc.PRIVATE_HOSTED_ZONE_ID
 }
+
+
+
+
 
 
