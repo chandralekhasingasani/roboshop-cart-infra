@@ -14,3 +14,7 @@ variable "SPOT_INSTANCE_COUNT" {}
 variable "INSTANCE_COUNT" {}
 variable "INSTANCE_TYPE" {}
 variable "WORKSTATION_IP" {}
+variable "IS_ALB_INTERNAL" {
+  default = true
+}
+variable "CIDR_BLOCK_ELB_ACCESS" {}
